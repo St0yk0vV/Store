@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store</title>
+</head>
+<body>
+  <h1>Store</h1>
+
+  <!-- Филтри / Търсене -->
+  <section>
+    <h3>Филтър</h3>
+    <label>
+      Търсене по име:
+      <input type="text" id="searchInput" placeholder="например: Препарат"/>
+    </label>
+    <label>
+      Категория:
+      <select id="filterCategory">
+        <option value="">(всички)</option>
+        <option>Препарати – кухня</option>
+        <option>Препарати – битови помещения</option>
+        <option>Препарати – двор</option>
+        <option>Консумативи</option>
+        <option>Работно облекло</option>
+        <option>Хигиенни материали</option>
+        <option>Лични предпазни средства</option>
+        <option>Медицински консумативи</option>
+        <option>Друго</option>
+      </select>
+    </label>
+    <button id="clearFiltersBtn">Изчисти филтри</button>
+  </section>
+
+  <hr/>
+
+  <!-- Форма за добавяне/редакция -->
+  <section>
+    <h3>Нов запис / Редакция</h3>
+    <form id="itemForm">
+      <input type="hidden" id="itemId"/>
+
+      <div>
+        <label>Име на артикул: <input type="text" id="name" required/></label>
+      </div>
+
+      <div>
+        <label>Категория:
+          <select id="category" required>
+            <option value="">-- изберете --</option>
+            <option>Препарати – кухня</option>
+            <option>Препарати – битови помещения</option>
+            <option>Препарати – двор</option>
+            <option>Консумативи</option>
+            <option>Работно облекло</option>
+            <option>Хигиенни материали</option>
+            <option>Лични предпазни средства</option>
+            <option>Медицински консумативи</option>
+            <option>Друго</option>
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label>Количество (с мерна единица):
+          <input type="text" id="quantity" placeholder="напр. 5 бр, 2 л"/>
+        </label>
+      </div>
+
+      <div>
+        <label>Дата на въвеждане: <input type="date" id="dateIn"/></label>
+      </div>
+
+      <div>
+        <label>Дата на отписване: <input type="date" id="dateOut"/></label>
+      </div>
+
+      <div>
+        <label>Бележки: <input type="text" id="notes" placeholder="по избор"/></label>
+      </div>
+
+      <div>
+        <button type="submit" id="saveBtn">Запиши</button>
+        <button type="button" id="resetBtn">Изчисти форма</button>
+      </div>
+    </form>
+  </section>
+
+  <hr/>
+
+  <!-- Контроли за експорт/импорт -->
+  <section>
+    <h3>Експорт / Импорт</h3>
+    <div>
+      <button id="exportCsvBtn">Експорт към Excel (CSV)</button>
+      <button id="exportJsonBtn">Експорт JSON</button>
+      <label>
+        Импорт JSON: <input type="file" id="importJsonInput" accept="application/json"/>
+      </label>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Таблица с данни -->
+  <section>
+    <h3>Записи</h3>
+    <table id="itemsTable" border="1" cellpadding="4" cellspacing="0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Име на артикул</th>
+          <th>Категория</th>
+          <th>Количество</th>
+          <th>Дата на въвеждане</th>
+          <th>Дата на отписване</th>
+          <th>Бележки</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
